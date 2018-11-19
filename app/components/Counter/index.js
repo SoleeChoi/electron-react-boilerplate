@@ -1,13 +1,11 @@
 // @flow
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Counter.css';
-import routes from '../constants/routes';
+import styles from './index.css';
+import routes from '../../constants/routes';
 
 type Props = {
   increment: () => void,
-  incrementIfOdd: () => void,
-  incrementAsync: () => void,
   decrement: () => void,
   counter: number
 };
@@ -15,14 +13,22 @@ type Props = {
 export default class Counter extends Component<Props> {
   props: Props;
 
+  onIncrementAsync = () => {
+    const { increment } = this.props;
+    setTimeout(() => {
+      increment();
+    }, 1000);
+  };
+
+  onIncrementIfOdd = () => {
+    const { counter, increment } = this.props;
+    if (counter % 2 === 0) return;
+    increment();
+  };
+
   render() {
-    const {
-      increment,
-      incrementIfOdd,
-      incrementAsync,
-      decrement,
-      counter
-    } = this.props;
+    const { increment, decrement, counter } = this.props;
+
     return (
       <div>
         <div className={styles.backButton} data-tid="backButton">
@@ -52,7 +58,7 @@ export default class Counter extends Component<Props> {
           </button>
           <button
             className={styles.btn}
-            onClick={incrementIfOdd}
+            onClick={this.onIncrementIfOdd}
             data-tclass="btn"
             type="button"
           >
@@ -60,7 +66,7 @@ export default class Counter extends Component<Props> {
           </button>
           <button
             className={styles.btn}
-            onClick={() => incrementAsync()}
+            onClick={this.onIncrementAsync}
             data-tclass="btn"
             type="button"
           >

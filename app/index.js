@@ -2,16 +2,22 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import Root from './containers/Root';
-import { configureStore, history } from './store/configureStore';
+import configureStore from './configureStore';
+import history from './utils/history';
+
 import './app.global.css';
 
-const store = configureStore();
+// Create redux store with history
+const initialState = {};
+const store = configureStore(initialState, history);
+
+const MOUNT_NODE = document.getElementById('root');
 
 render(
   <AppContainer>
     <Root store={store} history={history} />
   </AppContainer>,
-  document.getElementById('root')
+  MOUNT_NODE
 );
 
 if (module.hot) {
@@ -22,7 +28,7 @@ if (module.hot) {
       <AppContainer>
         <NextRoot store={store} history={history} />
       </AppContainer>,
-      document.getElementById('root')
+      MOUNT_NODE
     );
   });
 }
