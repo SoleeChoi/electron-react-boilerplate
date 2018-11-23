@@ -9,7 +9,7 @@
 [ ![alt text](https://img.shields.io/badge/hoist--non--react--statics-v3.1.0-lightgrey.svg?longCache=true&style=flat-square) ](https://github.com/mridgway/hoist-non-react-statics)
 [ ![alt text](https://img.shields.io/badge/prop--types-v15.6.2-333333.svg?longCache=true&style=flat-square) ](https://github.com/facebook/prop-types)
 
-This module is `electron-react-boilerplate` with [redux-saga](https://github.com/redux-saga/redux-saga), not redux-thunk. All codes related to redux-saga is based on [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate). So every process like install, runn, packaging is all same as [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate).
+This module is `electron-react-boilerplate` with [redux-saga](https://github.com/redux-saga/redux-saga), not redux-thunk. All the codes related to redux-saga are based on [react-boilerplate](https://github.com/react-boilerplate/react-boilerplate). So every process like install, run, packaging is equal to [electron-react-boilerplate](https://github.com/electron-react-boilerplate/electron-react-boilerplate). I changed the example to the one coded with redux-saga. You can check it out!
 
 ## Install
 
